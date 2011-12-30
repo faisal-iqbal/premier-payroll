@@ -1,0 +1,12 @@
+<%= form_for @department, :html => {:id => "department_edit", :multipart => true } do | f | %>
+  <div class="section_wrapper" style="padding-top:20px;">
+    <h2 class="indigo">Department</h2>
+    <div class="editor">
+      <%= f.label :name  %>
+      <%= f.text_field :name, :maxlength=>255 %>
+      <%= f.label :zone_id, 'Zone'  %>
+      <%= f.select :zone_id, Zone.all.collect{|z|[z.name,z.id]} %>
+    </div>
+    <div class="shadow"><img src="/images/bottom.png"/></div>
+  </div>
+<% end %>

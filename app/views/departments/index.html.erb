@@ -1,0 +1,12 @@
+<h1>Department<span class="actions"><%= link_to "create new", new_department_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current departments in the system.</p>
+<% @departments.each do |zone_id, departments| -%>
+  <div class="list_group">
+    <h2>Zone: <%= departments.first.zone.name if departments.first.zone %></h2>
+    <ul id="homepages">
+      <% departments.each do |department| -%>
+        <%= render :partial => "department", :locals => {:department => department} %>
+      <% end -%>
+    </ul>
+  </div>
+<% end -%>

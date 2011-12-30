@@ -1,0 +1,10 @@
+<%= form_for @region, :html => {:id => "region_edit", :multipart => true } do | f | %>
+  <div class="section_wrapper" style="padding-top:20px;">
+    <h2 class="indigo">Region</h2>
+    <div class="editor">
+      <%= f.label :name  %>
+      <%= f.text_field :name, :maxlength=>255 %>
+    </div>
+    <div class="shadow"><img src="/images/bottom.png"/></div>
+  </div>
+<% end %>

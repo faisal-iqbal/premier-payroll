@@ -1,0 +1,52 @@
+form#trip_search button {
+	padding:6px 5px 5px 25px;	
+}
+
+div.buttons {
+	clear:both;
+	float:right;
+	padding:20px 0 0;
+	overflow:auto;
+}
+
+div.buttons button {
+	padding:7px 5px 5px 25px;	
+}
+
+div#header a.tabs {
+	border-bottom:0px;	
+	margin-top:62px;
+}
+
+li.trip div.operations a.fancy.edit,
+li.trip div.operations a.fancy.edit:hover {
+	background:#233b4d;
+}
+
+li.trip div.operations a.fancy.publish {
+	background:#758051;
+}
+
+li.trip div.operations a.fancy.view {
+	background:#444444;
+}
+
+li.trip div.operations a.fancy.pdf,
+li.trip div.operations a.fancy.pdf:hover {
+	background:#660c13;
+}
+
+li.trip div.operations a.fancy:hover {
+	text-decoration:underline;
+}
+
+div.editor table.image_file input {
+	width:300px;
+}
+
+
+div.section_wrapper {
+	_width:830px;
+	_float:left;
+	_margin:0px;
+}

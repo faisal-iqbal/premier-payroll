@@ -1,0 +1,7 @@
+<li class="list">
+  <div class="basecamp_srp_object">
+    <%= link_to 'DETAILS', payslip_path(payslip), :class=>"fancy edit" -%>
+    <span class="title"><%= payslip.employee.full_name %></span>
+    <span class="title">salary: <%= payslip.salary_payout %></span>
+  </div>
+</li>

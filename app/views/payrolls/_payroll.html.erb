@@ -1,0 +1,7 @@
+<li class="list">
+  <div class="basecamp_srp_object">
+    <%= link_to 'DETAILS', payroll_path(payroll), :class=>"fancy edit" -%>
+    <span class="title"><%= "Period: #{payroll.start.to_date} - #{payroll.end.to_date}" %></span>
+    <%= link_to 'DELETE', payroll_path(payroll), :method => :delete, :confirm => 'This payroll will be deleted forever.  Are you sure?', :class=>"delete" -%>
+  </div>
+</li>

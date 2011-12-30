@@ -1,0 +1,34 @@
+<h1>Payslip</h1>
+<h2>from payroll period: <%=  @payslip.payroll.start.to_date %> - <%=  @payslip.payroll.end.to_date %></h2>
+<div id="edit_body">
+  <div class="section_wrapper" style="padding-top:20px;">
+    <h2 class="indigo">Payslip</h2>
+    <div class="editor">
+      <div class="payslip_col">
+        <ul>
+          <li class="list"><label>Name:</label> <%= @payslip.employee.full_name %></li>
+          <li class="list"><label>Employee Number:</label> <%= @payslip.employee.id %></li>
+          <li class="list"><label>Payroll period:</label> <%=  @payslip.payroll.start.to_date %> - <%=  @payslip.payroll.end.to_date %></li>
+        </ul>
+      </div>
+      <div class="payslip_col">
+        <ul>
+          <li class="list"><label>Leave days:</label> <%= @payslip.leave_days %></li>
+          <li class="list"><label>Half days:</label> <%= @payslip.half_days %></li>
+          <li class="list"><label>Late in:</label> <%= @payslip.late_in_days %></li>
+          <li class="list"><label>Early out:</label> <%= @payslip.early_out_days %></li>
+        </ul>
+      </div>
+      <div class="payslip_col">
+        <ul>
+          <li class="list"><label>Salary:</label> <%= @payslip.salary %></li>
+          <li class="list"><label>Allowances:</label> <%= @payslip.total_allowances %></li>
+          <li class="list"><label>Deductions:</label> <%= @payslip.total_deductions %></li>
+          <li class="list"><label>Tax:</label> <%= @payslip.tax %></li>
+          <li class="list"><label>Salary payout:</label> <%= @payslip.salary_payout %></li>
+        </ul>
+      </div>
+      <p><%=  @payslip.comments %></p>
+    </div>
+  </div>
+</div>

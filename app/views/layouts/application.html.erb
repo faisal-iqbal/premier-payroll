@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>PremierPayroll | <%= params[:controller].capitalize %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag 'admin', :media => 'screen, projection' %>
+    <%= stylesheet_link_tag 'modal', :media => 'screen, projection' %>
+    <%= stylesheet_link_tag 'ga', :media => 'screen, projection' %>
+    <%= stylesheet_link_tag 'style', :media => 'screen, projection' %>
+    <!--[if IE]><%= stylesheet_link_tag 'admin_ie', :media => 'screen, projection' %><![endif]-->
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery-ui" %>
+    <%= javascript_include_tag "timepicker" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+    <%= yield(:chartjs) %>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+        var size = jQuery(window).width();
+        jQuery("#header a.logout").css({
+          left:((size-960)/2)+920
+        })
+        jQuery("div.flash").css({
+          "left": ((size-jQuery("div.flash").width())/2)
+        });
+        var spacing = jQuery("a#options").offset();
+        jQuery("#menu_options").css({left:(spacing.left-142)});
+        jQuery("a#options").data("expanded","no").click(function(){
+          var link = jQuery(this);
+          if(link.data("expanded") == "no"){
+            link.data("expanded","yes").addClass("expanded");
+            jQuery("#menu_options").slideDown();
+          }else{
+            link.data("expanded","no").removeClass("expanded");
+            jQuery("#menu_options").slideUp();
+          }
+          return false;
+        })
+        // to slideup the options menu when clik elsewhere on the page
+        jQuery(document).click(function(){
+          var link = jQuery("a#options");
+          link.data("expanded","no").removeClass("expanded");
+          jQuery("#menu_options").slideUp();
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <%= render :partial => 'shared/flash_messages' %>
+    <div id="header">
+      <span class="block">
+        <a href="#" id="options" class="tabs"><span>Navigation</span></a>
+        <%= link_to @nav_tab.capitalize, "/#{@nav_tab}", :class=>"tabs on" %>
+        <%= link_to("Home", root_path, :class=>"tabs") unless params[:controller] == 'main' %>
+        <%= link_to image_tag("/images/Accounting.png"), root_path %>
+      </span>
+    </div>
+    <ul id="menu_options">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Attendance", attendances_path %></li>
+      <li><%= link_to "Employees", employees_path %></li>
+      <li><%= link_to "Departments", departments_path %></li>
+      <li><%= link_to "Zones", zones_path %></li>
+      <li><%= link_to "Region", regions_path %></li>
+      <li><%= link_to "Payroll", payrolls_path %></li>
+    </ul>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="user_message"></div>
+  </body>
+</html>

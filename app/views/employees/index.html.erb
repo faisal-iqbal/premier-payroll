@@ -1,0 +1,7 @@
+<h1>Employee<span class="actions"><%= link_to "create new", new_employee_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current employees in the system.</p>
+<ul id="homepages">
+  <% @employees.each do |employee| -%>
+    <%= render :partial => "employee", :locals => {:employee => employee} %>
+  <% end -%>
+</ul>

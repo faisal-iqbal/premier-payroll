@@ -1,0 +1,23 @@
+<% if @department.new_record? %>
+  <h1>Create New Department</h1>
+<% else %>
+  <h1>Department: <%= @department.name -%></h1>
+<% end %>
+<%= errors_for(@department) %>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_department">save</a>
+    <%= link_to "Back", departments_path, :alt => "Cancel", :class => "cancel" %>
+  </div>
+  <%= render :partial => "form", :locals => {:department => @department }%>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_department").click(function(){
+        jQuery("form#department_edit").submit();
+        return false;
+      })
+    });
+  </script>
+<% end %>

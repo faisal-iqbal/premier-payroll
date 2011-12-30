@@ -1,0 +1,59 @@
+1325073495
+Allowance	C:/Sites/PremierPayroll/app/models/allowance.rb	class Allowance 
+Application	C:/Sites/PremierPayroll/config/application.rb	  class Application 
+ApplicationController	C:/Sites/PremierPayroll/app/controllers/application_controller.rb	class ApplicationController 
+ApplicationHelper	C:/Sites/PremierPayroll/app/helpers/application_helper.rb	module ApplicationHelper
+Attendance	C:/Sites/PremierPayroll/app/models/attendance.rb	class Attendance 
+BrowsingTest	C:/Sites/PremierPayroll/test/performance/browsing_test.rb	class BrowsingTest 
+CreatePayroll	C:/Sites/PremierPayroll/db/migrate/002_create_payroll.rb	class CreatePayroll 
+Deduction	C:/Sites/PremierPayroll/app/models/deduction.rb	class Deduction 
+Department	C:/Sites/PremierPayroll/app/models/department.rb	class Department 
+Employee	C:/Sites/PremierPayroll/app/models/employee.rb	class Employee 
+MainController	C:/Sites/PremierPayroll/app/controllers/main_controller.rb	class MainController 
+Payroll	C:/Sites/PremierPayroll/app/models/payroll.rb	class Payroll 
+PayrollController	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	class PayrollController 
+PayrollController	C:/Sites/PremierPayroll/app/controllers/payroll_controller.rb	class PayrollController 
+Payslip	C:/Sites/PremierPayroll/app/models/payslip.rb	class Payslip 
+PremierPayroll	C:/Sites/PremierPayroll/config/application.rb	module PremierPayroll
+Region	C:/Sites/PremierPayroll/app/models/region.rb	class Region 
+STATUS_MESSAGES	C:/Sites/PremierPayroll/app/models/attendance.rb	  STATUS_MESSAGES =
+SetupDb	C:/Sites/PremierPayroll/db/migrate/001_setup_db.rb	class SetupDb 
+TestCase	C:/Sites/PremierPayroll/test/test_helper.rb	class ActiveSupport::TestCase
+Zone	C:/Sites/PremierPayroll/app/models/zone.rb	class Zone 
+attendance	C:/Sites/PremierPayroll/app/controllers/main_controller.rb	  def attendance
+basic_salary	C:/Sites/PremierPayroll/app/models/employee.rb	  def basic_salary
+clear_flash	C:/Sites/PremierPayroll/app/helpers/application_helper.rb	  def clear_flash
+create	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	  def create
+destroy	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	  def destroy
+down	C:/Sites/PremierPayroll/db/migrate/001_setup_db.rb	  def self.down
+down	C:/Sites/PremierPayroll/db/migrate/002_create_payroll.rb	  def self.down
+early_out_days	C:/Sites/PremierPayroll/app/models/employee.rb	  def early_out_days(start_date, end_date)
+edit	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	  def edit
+full_name	C:/Sites/PremierPayroll/app/models/employee.rb	  def full_name
+generate	C:/Sites/PremierPayroll/app/controllers/payroll_controller.rb	  def generate
+generate	C:/Sites/PremierPayroll/app/models/payroll.rb	  def generate(start_date, end_date, work_days)
+generate_payslip	C:/Sites/PremierPayroll/app/models/employee.rb	  def generate_payslip(start_date, end_date)
+get_working_days	C:/Sites/PremierPayroll/app/controllers/payroll_controller.rb	  def get_working_days(d1, d2)
+get_working_days	C:/Sites/PremierPayroll/app/helpers/application_helper.rb	  def get_working_days(d1, d2)
+half_days	C:/Sites/PremierPayroll/app/models/employee.rb	  def half_days(start_date, end_date)
+holidays	C:/Sites/PremierPayroll/app/controllers/payroll_controller.rb	  def holidays(d1, d2)
+holidays	C:/Sites/PremierPayroll/app/helpers/application_helper.rb	  def holidays(d1, d2)
+index	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	  def index
+index	C:/Sites/PremierPayroll/app/controllers/main_controller.rb	  def index
+index	C:/Sites/PremierPayroll/app/controllers/payroll_controller.rb	  def index
+late_in_days	C:/Sites/PremierPayroll/app/models/employee.rb	  def late_in_days(start_date, end_date)
+leave_days	C:/Sites/PremierPayroll/app/models/employee.rb	  def leave_days(start_date, end_date)
+new	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	  def new
+payable?	C:/Sites/PremierPayroll/app/models/attendance.rb	  def payable?
+save_attendance	C:/Sites/PremierPayroll/app/controllers/main_controller.rb	  def save_attendance
+set_tab	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	  def set_tab
+tax	C:/Sites/PremierPayroll/app/helpers/application_helper.rb	  def tax(salary)
+tax	C:/Sites/PremierPayroll/app/models/employee.rb	  def tax(amount)
+taxable_salary	C:/Sites/PremierPayroll/app/models/employee.rb	  def taxable_salary(start_date, end_date)
+test_homepage	C:/Sites/PremierPayroll/test/performance/browsing_test.rb	  def test_homepage
+total_allowances	C:/Sites/PremierPayroll/app/models/employee.rb	  def total_allowances(start_date, end_date)
+total_deductions	C:/Sites/PremierPayroll/app/models/employee.rb	  def total_deductions(start_date, end_date)
+up	C:/Sites/PremierPayroll/db/migrate/001_setup_db.rb	  def self.up
+up	C:/Sites/PremierPayroll/db/migrate/002_create_payroll.rb	  def self.up    
+update	C:/Sites/PremierPayroll/app/controllers/employee_controller.rb	  def update
+working_days_between	C:/Sites/PremierPayroll/app/models/employee.rb	  def working_days_between(start_date, end_date)

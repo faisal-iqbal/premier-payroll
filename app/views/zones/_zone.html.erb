@@ -1,0 +1,7 @@
+<li class="list">
+  <div class="basecamp_srp_object">
+    <%= link_to 'Details', edit_zone_path(zone), :class=>"fancy edit" -%>
+    <span class="title"><%= zone.name %></span>
+    <%= link_to 'DELETE', zone_path(zone), :method => :delete, :confirm => 'This zone will be deleted forever.  Are you sure?', :class=>"delete" -%>
+  </div>
+</li>

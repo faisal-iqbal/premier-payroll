@@ -1,0 +1,24 @@
+<%= form_for @employee, :html => {:id => "employee_edit", :multipart => true } do | f | %>
+  <div class="section_wrapper" style="padding-top:20px;">
+    <h2 class="indigo">Employee</h2>
+    <div class="editor">
+      <%= f.label :first_name  %>
+      <%= f.text_field :first_name, :maxlength=>255 %>
+      <%= f.label :last_name  %>
+      <%= f.text_field :last_name, :maxlength=>255 %>
+      <%= f.label :age  %>
+      <%= f.text_field :age, :maxlength=>255 %>
+      <%= f.label :married  %>
+      <%= f.check_box :married %>
+      <%= f.label :department_id, 'Department'  %>
+      <%= f.select :department_id, grouped_options_for_select(Department.option_for_select) %>
+      <%= f.label :medical  %>
+      <%= f.text_field :medical, :maxlength=>255 %>
+      <%= f.label :utilities  %>
+      <%= f.text_field :utilities, :maxlength=>255 %>
+      <%= f.label :salary  %>
+      <%= f.text_field :salary, :maxlength=>255 %>
+  </div>
+  <div class="shadow"><img src="/images/bottom.png"/></div>
+</div>
+<% end %>

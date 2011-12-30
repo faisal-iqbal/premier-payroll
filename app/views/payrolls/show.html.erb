@@ -1,0 +1,25 @@
+<h1>Payroll</h1>
+<h2>period: <%= @payroll.start.to_date %> - <%= @payroll.end.to_date %></h2>
+<p><%= @payroll.comments %></p>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <p style="border: 1px dashed #CCC"><label>Total Payout</label><br><%= @payroll.total_payout%></p>
+    <p style="border: 1px dashed #CCC"><label>Working Days</label><br><%= @payroll.working_days %></p>
+  </div>
+  <div class="section_wrapper" style="padding-top:20px;">
+    <h2 class="indigo">Payslips</h2>
+    <div class="editor">
+      <ul>
+        <% @payroll.payslips.all.each do |payslip| %>
+          <li class="list">
+            <div class="basecamp_srp_object" style="margin-left:11px">
+              <%= link_to 'DETAILS', payslip_path(payslip), :class=>"fancy edit" -%>
+              <span class="title"><%= payslip.employee.full_name %></span>
+              <span><%= payslip.salary_payout %></span>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

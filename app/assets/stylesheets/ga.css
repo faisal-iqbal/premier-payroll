@@ -1,0 +1,130 @@
+a {
+	color:#005C9C;
+	outline:medium none;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+th.text a, td.text a {
+	margin-left:1px;
+}
+
+.text_wrapper {
+	display:block;
+	height:1.2em;
+	margin:0;
+	position:relative;
+	width:100%;
+}
+
+.text_wrapper .text_wrapper {
+	height:1.2em;
+	left:0;
+	margin:0;
+	overflow:hidden;
+	padding:0;
+	position:absolute;
+	top:0;
+	white-space:nowrap;
+	width:100%;
+}
+
+.text_wrapper .text_wrapper img {
+	padding-right:2px;
+	vertical-align:top;
+}
+
+html span.text_wrapper, html span.text_wrapper span.text_wrapper {
+	width:161px;
+}
+
+* html span.text_wrapper, * html span.text_wrapper span.text_wrapper {
+	width:150px;
+}
+
+.negative_comparison {
+	color:#990000 !important;
+}
+
+.positive_comparison {
+	color:#078C00 !important;
+}
+
+.neutral_comparison {
+	color:#666666 !important;
+}
+
+.rank_1 .legend {
+background:none repeat scroll 0 0 #058DC7;
+}
+.rank_2 .legend {
+background:none repeat scroll 0 0 #50B432;
+}
+.rank_3 .legend {
+background:none repeat scroll 0 0 #ED561B;
+}
+.rank_4 .legend {
+background:none repeat scroll 0 0 #EDEF00;
+}
+.rank_5 .legend {
+background:none repeat scroll 0 0 #24CBE5;
+}
+.rank_6 .legend {
+background:none repeat scroll 0 0 #64E572;
+}
+.rank_7 .legend {
+background:none repeat scroll 0 0 #FF9655;
+}
+.rank_8 .legend {
+background:none repeat scroll 0 0 #FFF263;
+}
+.rank_9 .legend {
+background:none repeat scroll 0 0 #6AF9C4;
+}
+.rank_10 .legend {
+background:none repeat scroll 0 0 #B2DEFF;
+}
+.rank_11 .legend {
+background:none repeat scroll 0 0 #CCCCCC;
+}
+
+.email_address {
+	color:#333333;
+	font-weight:bold;
+}
+
+.visits_explanation {
+float:left;
+margin-top:2em;
+}
+
+.overview_intro {
+background:url("/images/bg/corner_eeeeee_tl.gif") no-repeat scroll left top #EEEEEE;
+float:left;
+margin:0 0 1em;
+width:100%;
+}
+.overview_intro div {
+background:url("/images/bg/corner_eeeeee_bl.gif") no-repeat scroll left bottom transparent;
+}
+.overview_intro div div {
+background:url("/images/bg/corner_eeeeee_br.gif") no-repeat scroll right bottom transparent;
+}
+.overview_intro h2 {
+background:url("/images/bg/corner_eeeeee_tr.gif") no-repeat scroll right top transparent;
+margin:0;
+padding:10px 12px;
+font-size: 178%;
+}
+.overview_intro p {
+color:#666666;
+margin:-10px 0 0;
+padding:0 12px 10px;
+}

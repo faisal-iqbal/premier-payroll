@@ -1,0 +1,10 @@
+<h1>Payslip</h1>
+<p>A list of all current payslips in the system.</p>
+<% @payslips.each do |payroll_id, payslips| -%>
+  <h2>payroll period: <%=  payslips.first.payroll.start.to_date %> - <%=  payslips.first.payroll.end.to_date %></h2>
+  <ul id="homepages">
+    <% payslips.each do |payslip| -%>
+      <%= render :partial => "payslip", :locals => {:payslip => payslip} %>
+    <% end -%>
+  </ul>
+<% end -%>

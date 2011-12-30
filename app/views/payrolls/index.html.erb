@@ -1,0 +1,7 @@
+<h1>Payroll<span class="actions"><%= link_to "create new", new_payroll_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current payrolls in the system.</p>
+<ul id="homepages">
+  <% @payrolls.each do |payroll| -%>
+    <%= render :partial => "payroll", :locals => {:payroll => payroll} %>
+  <% end -%>
+</ul>

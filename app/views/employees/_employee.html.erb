@@ -1,0 +1,7 @@
+<li class="list">
+  <div class="basecamp_srp_object">
+    <%= link_to 'Details', edit_employee_path(employee), :class=>"fancy edit" -%>
+    <span class="title">[<%= employee.id %>] <%= employee.full_name %></span>
+    <%= link_to 'DELETE', employee_path(employee), :method => :delete, :confirm => 'This employee will be deleted forever.  Are you sure?', :class=>"delete" -%>
+  </div>
+</li>

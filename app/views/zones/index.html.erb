@@ -1,0 +1,12 @@
+<h1>Zone<span class="actions"><%= link_to "create new", new_zone_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current zones in the system.</p>
+<% @zones.each do |region_id, zones| -%>
+  <div class="list_group">
+    <h2>Region: <%= zones.first.region.name if zones.first.region %></h2>
+    <ul id="homepages">
+      <% zones.each do |zone| -%>
+        <%= render :partial => "zone", :locals => {:zone => zone} %>
+      <% end -%>
+    </ul>
+  </div>
+<% end -%>

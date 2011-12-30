@@ -1,0 +1,23 @@
+<% if @region.new_record? %>
+  <h1>Create New Region</h1>
+<% else %>
+  <h1>Region: <%= @region.name -%></h1>
+<% end %>
+<%= errors_for(@region) %>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_region">save</a>
+    <%= link_to "Back", regions_path, :alt => "Cancel", :class => "cancel" %>
+  </div>
+  <%= render :partial => "form", :locals => {:region => @region }%>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_region").click(function(){
+        jQuery("form#region_edit").submit();
+        return false;
+      })
+    });
+  </script>
+<% end %>

@@ -1,0 +1,23 @@
+<% if @zone.new_record? %>
+  <h1>Create New Zone</h1>
+<% else %>
+  <h1>Zone: <%= @zone.name -%></h1>
+<% end %>
+<%= errors_for(@zone) %>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_zone">save</a>
+    <%= link_to "Back", zones_path, :alt => "Cancel", :class => "cancel" %>
+  </div>
+  <%= render :partial => "form", :locals => {:zone => @zone }%>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_zone").click(function(){
+        jQuery("form#zone_edit").submit();
+        return false;
+      })
+    });
+  </script>
+<% end %>

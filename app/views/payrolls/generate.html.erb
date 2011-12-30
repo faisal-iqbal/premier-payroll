@@ -1,0 +1,8 @@
+from: <%= @start %><br>
+till: <%= @end %><br>
+<%= @payroll.total_payout%><br>
+<%= @payroll.working_days %><br>
+<% @payroll.payslips.all.each do |payslip| %>
+<h3><%= payslip.employee.full_name %></h3>
+<%= payslip.salary_payout %>
+<% end %>

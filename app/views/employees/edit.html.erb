@@ -1,0 +1,23 @@
+<% if @employee.new_record? %>
+  <h1>Create New Employee</h1>
+<% else %>
+  <h1>Employee: <%= @employee.full_name -%></h1>
+<% end %>
+<%= errors_for(@employee) %>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_employee">save</a>
+    <%= link_to "Back", employees_path, :alt => "Cancel", :class => "cancel" %>
+  </div>
+  <%= render :partial => "form", :locals => {:employee => @employee }%>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_employee").click(function(){
+        jQuery("form#employee_edit").submit();
+        return false;
+      })
+    });
+  </script>
+<% end %>

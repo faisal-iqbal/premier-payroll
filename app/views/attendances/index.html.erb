@@ -1,0 +1,55 @@
+<h1>Attendance</h1>
+<h1>Date: <%=text_field_tag "date_pick", @date.to_date, :size=>"8" %><span class="hint">click on date field to select a different date</span></h1>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_attendance">save</a>
+  </div>
+  <div class="section_wrapper" style="padding-top:20px;">
+    <h2 class="indigo">Attendance</h2>
+    <div class="editor">
+      <%= form_tag save_attendance_path, :id => "edit_attendance" do %>
+        <ul>
+          <%- @employees.each_with_index do |emp, i| -%>
+            <li class="list">
+              <div class="attendance_item">
+                [<%= emp.id %>] <%= emp.full_name %>
+                <%= hidden_field_tag "attendances[#{i}][employee_id]", emp.id %>
+                <%= hidden_field_tag "attendances[#{i}][date]", @date %>
+                <%= hidden_field_tag "attendances[#{i}][updated]", 0 %>
+                <%= select_tag "attendances[#{i}][status]", options_for_select(Attendance::STATUS_MESSAGES.values ,@attendances[emp.id].status), {:prompt => "----- select -----", :onchange => "show_time_field('#{i}');"} %>
+                <span id="timestamp_<%=i%>" <%="style='display:none;'" if ["On Leave", "On Paid Leave", "", nil].include?(@attendances[emp.id].status)%> ><%= text_field_tag "attendances[#{i}][timestamp]", @attendances[emp.id].timestamp.strftime("%I:%M %P"), {:class=>"datetime", :onchange => "show_time_field('#{i}');"} %></span>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery('.datetime').timepicker({
+        ampm: true
+      });
+      jQuery('#date_pick').datepicker({
+        maxDate: new Date(),
+        dateFormat: "yy-mm-dd",
+        onSelect: function(dateText, inst) { window.location.href = ("/attendances?date="+dateText);}
+      });
+      jQuery("a#save_attendance").click(function(){
+        jQuery("form#edit_attendance").submit();
+        return false;
+      })
+    });
+    function show_time_field(emp_id) {
+      if ( (jQuery('#attendances_'+emp_id+'_status').val() == "On Leave" )
+        || (jQuery('#attendances_'+emp_id+'_status').val() == "On Paid Leave" ) ) {
+        jQuery('#timestamp_'+emp_id).hide();
+      }else{
+        jQuery('#timestamp_'+emp_id).show();
+      }
+      jQuery('#attendances_'+emp_id+'_updated').val(1);
+    }
+  </script>
+<% end %>

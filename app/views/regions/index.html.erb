@@ -1,0 +1,7 @@
+<h1>Region<span class="actions"><%= link_to "create new", new_region_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current regions in the system.</p>
+<ul id="homepages">
+  <% @regions.each do |region| -%>
+    <%= render :partial => "region", :locals => {:region => region} %>
+  <% end -%>
+</ul>
