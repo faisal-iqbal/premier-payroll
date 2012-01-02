@@ -1,0 +1,14 @@
+<%= form_for @allowance, :html => {:id => "allowance_edit", :multipart => true } do | f | %>
+  <div class="section_wrapper" style="padding-top:20px;">
+    <h2 class="indigo">Allowance</h2>
+    <div class="editor">
+      <%= f.label :date  %>
+      <%= f.text_field :date, :class=>'date_picker' %>
+      <%= f.label :employee_id, 'Employee'  %>
+      <%= f.select :employee_id, Employee.all.collect{|e| [e.full_name, e.id]} %>
+      <%= f.label :amount  %>
+      <%= f.text_field :amount, :maxlength=>255 %>
+  </div>
+  <div class="shadow"><img src="/images/bottom.png"/></div>
+</div>
+<% end %>

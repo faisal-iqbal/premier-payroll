@@ -1,0 +1,27 @@
+<% if @allowance.new_record? %>
+  <h1>Create New Allowance</h1>
+<% else %>
+  <h1>Allowance: <%= @allowance.full_name -%></h1>
+<% end %>
+<%= errors_for(@allowance) %>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_allowance">save</a>
+    <%= link_to "Back", allowances_path, :alt => "Cancel", :class => "cancel" %>
+  </div>
+  <%= render :partial => "form", :locals => {:allowance => @allowance }%>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_allowance").click(function(){
+        jQuery("form#allowance_edit").submit();
+        return false;
+      })
+      jQuery('.date_picker').datepicker({
+        maxDate: new Date(),
+        dateFormat: "yy-mm-dd"
+      });
+    });
+  </script>
+<% end %>

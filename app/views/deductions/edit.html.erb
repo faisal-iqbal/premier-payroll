@@ -1,0 +1,27 @@
+<% if @deduction.new_record? %>
+  <h1>Create New Deduction</h1>
+<% else %>
+  <h1>Deduction: <%= @deduction.full_name -%></h1>
+<% end %>
+<%= errors_for(@deduction) %>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_deduction">save</a>
+    <%= link_to "Back", deductions_path, :alt => "Cancel", :class => "cancel" %>
+  </div>
+  <%= render :partial => "form", :locals => {:deduction => @deduction }%>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_deduction").click(function(){
+        jQuery("form#deduction_edit").submit();
+        return false;
+      })
+      jQuery('.date_picker').datepicker({
+        maxDate: new Date(),
+        dateFormat: "yy-mm-dd"
+      });
+    });
+  </script>
+<% end %>

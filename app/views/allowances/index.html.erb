@@ -1,0 +1,7 @@
+<h1>Allowance<span class="actions"><%= link_to "create new", new_allowance_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current allowances in the system.</p>
+<ul id="homepages">
+  <% @allowances.each do |allowance| -%>
+    <%= render :partial => "allowance", :locals => {:allowance => allowance} %>
+  <% end -%>
+</ul>

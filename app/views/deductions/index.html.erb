@@ -1,0 +1,7 @@
+<h1>Deduction<span class="actions"><%= link_to "create new", new_deduction_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current deductions in the system.</p>
+<ul id="homepages">
+  <% @deductions.each do |deduction| -%>
+    <%= render :partial => "deduction", :locals => {:deduction => deduction} %>
+  <% end -%>
+</ul>

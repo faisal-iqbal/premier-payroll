@@ -1,0 +1,7 @@
+<li class="list">
+  <div class="basecamp_srp_object">
+    <%= link_to 'Details', edit_allowance_path(allowance), :class=>"fancy edit" -%>
+    <span class="title"> <%= allowance.date.to_date %> | <%= allowance.employee.full_name %> | <%= allowance.amount %></span>
+    <%= link_to 'DELETE', allowance_path(allowance), :method => :delete, :confirm => 'This allowance will be deleted forever.  Are you sure?', :class=>"delete" -%>
+  </div>
+</li>

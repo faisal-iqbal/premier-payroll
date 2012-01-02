@@ -1,0 +1,16 @@
+<h1>Users<span class="actions"><%= link_to "create new", new_user_path, :class => "new_trip_link" %></span></h1>
+<p>A list of all current users in the system.</p>
+<ul id="homepages">
+  <% @users.each do |user| -%>
+    <li class="list">
+      <div class="basecamp_srp_object">
+        <%= link_to 'Details', edit_user_path(user), :class=>"fancy edit" -%>
+        <span class="title"><%= image_tag("/images/key.png", :alt=>"admin user") if user.admin?%>
+          <%= user.email %>
+        </span>
+        <span class="hint"><%= 'admin' if user.admin?%></span>
+        <%= link_to 'DELETE', "/users/destroy/#{user.id}", :confirm => 'This user will be deleted forever.  Are you sure?', :class=>"delete" -%>
+      </div>
+    </li>
+  <% end -%>
+</ul>

@@ -1,0 +1,38 @@
+<% if @action=='create' %>
+  <h1>Create New User</h1>
+<% else %>
+  <h1>User: <%= @user.email -%></h1>
+<% end %>
+<%= errors_for(@user) %>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_user_btn">save</a>
+    <%= link_to "Back", :back, :class => "cancel" %>
+  </div>
+  <%= form_for(@user, :url => "/users/#{@action}", :html=>{:id => "save_user"}) do |f| %>
+    <div class="section_wrapper" style="padding-top:20px;">
+      <h2 class="indigo">User</h2>
+      <div class="editor">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <%= f.label :password %>
+        <%= f.password_field :password %><% if @action=='update' %><i>(leave blank if you don't want to change it)</i><% end %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+        <%= f.label :admin %>
+        <%= f.check_box :admin %>
+        <%= f.hidden_field :id if @action=='update' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_user_btn").click(function(){
+        jQuery("form#save_user").submit();
+        return false;
+      })
+    });
+  </script>
+<% end %>

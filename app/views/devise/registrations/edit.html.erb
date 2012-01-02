@@ -1,0 +1,37 @@
+<h1>Account Settings<span class="actions"><%= link_to "Cancel account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %></span></h1>
+<div id="edit_body">
+  <div class="edit_buttons">
+    <a href="#" id="save_user">save</a>
+    <%= link_to "Back", :back, :class => "cancel" %>
+  </div>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="section_wrapper" style="padding-top:20px;">
+      <h2 class="indigo"><%= resource_name.to_s.capitalize %></h2>
+      <div class="editor">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <%= f.label :password %>
+        <%= f.password_field :password %><i>(leave blank if you don't want to change it)</i>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password %><i>(we need your current password to confirm your changes)</i>
+        <% if current_user.admin? %>
+          <%= f.label :admin %>
+          <%= f.check_box :admin %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery("a#save_user").click(function(){
+        jQuery("form#user_edit").submit();
+        return false;
+      })
+    });
+  </script>
+<% end %>
