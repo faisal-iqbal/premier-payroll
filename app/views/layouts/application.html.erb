@@ -43,19 +43,31 @@
     <div id="header">
       <span class="block">
         <a href="#" id="options" class="tabs"><span>Navigation</span></a>
-        <%= link_to @nav_tab.capitalize, "/#{@nav_tab}", :class=>"tabs on" %>
-        <%= link_to("Home", root_path, :class=>"tabs") unless params[:controller] == 'main' %>
+        <%= link_to(@nav_tab.capitalize.gsub('_',' '), "/#{@nav_tab}", :class=>"tabs on") if @nav_tab %>
+        <%= link_to("Home", root_path, :class=>"tabs") unless @nav_tab == 'home' %>
         <%= link_to image_tag("/images/Accounting.png"), root_path %>
+        <div class="user_nav">
+        <% if user_signed_in? %>
+          <%= link_to('Account', edit_user_registration_path(current_user)) %> | 
+          <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+        <% else %>
+          <%= link_to('Sign in', new_user_session_path) %> |
+        <%= link_to('Sign up', new_user_registration_path) %>
+        <% end %>
+        </div>
       </span>
     </div>
     <ul id="menu_options">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Attendance", attendances_path %></li>
       <li><%= link_to "Employees", employees_path %></li>
+      <li><%= link_to "Allowances", allowances_path %></li>
+      <li><%= link_to "Deductions", deductions_path %></li>
       <li><%= link_to "Departments", departments_path %></li>
       <li><%= link_to "Zones", zones_path %></li>
       <li><%= link_to "Region", regions_path %></li>
       <li><%= link_to "Payroll", payrolls_path %></li>
+      <% if user_signed_in? and current_user.admin? %><li><%= link_to("Users", users_path)%></li><% end %>
     </ul>
     <div id="content">
       <%= yield %>

@@ -1,3 +1,3 @@
-<% %w(notice warning error).each do |msg| %>
+<% %w(notice warning error alert).each do |msg| %>
 <%= content_tag(:div, flash[msg.to_sym], :class => "flash #{msg}") unless flash[msg.to_sym].blank? %>
 <% end %>

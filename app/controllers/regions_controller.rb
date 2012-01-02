@@ -1,7 +1,7 @@
 class RegionsController < ActionController::Base
-  helper ApplicationHelper
-  layout 'application'
+  before_filter :authenticate_user!
   before_filter :set_tab
+  layout 'application'
 
   def index
     @regions = Region.all

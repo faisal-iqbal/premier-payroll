@@ -5,6 +5,13 @@ class Employee < ActiveRecord::Base
   has_many :allowances
   has_many :deductions
   has_many :attendances
+
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :salary, :presence => true, :numericality => true
+  validates :medical, :presence => true, :numericality => true
+  validates :utilities, :presence => true, :numericality => true
+  validates :age, :presence => true, :numericality => true
   
   def full_name
     "#{self.first_name} #{self.last_name}"

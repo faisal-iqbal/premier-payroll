@@ -1,7 +1,7 @@
 class EmployeesController < ActionController::Base
-  helper ApplicationHelper
-  layout 'application'
+  before_filter :authenticate_user!
   before_filter :set_tab
+  layout 'application'
 
   def index
     @employees = Employee.all
@@ -73,12 +73,12 @@ class EmployeesController < ActionController::Base
     respond_to do |format|
       if @employee.destroy
         flash[:notice] = 'Employee was successfully deleted.'
-        format.html { redirect_to employee_path }
+        format.html { redirect_to employees_path }
         format.xml  { head :ok }
         format.js { render :partial => "shared/update" }
       else
         flash[:error] = @employee.errors
-        format.html { redirect_to employee_path }
+        format.html { redirect_to employees_path }
         format.xml  { render :xml => @employee.errors, :status => :unprocessable_entity }
         format.js {
           messages = @employee.errors.collect { | error | error.join(' '); }

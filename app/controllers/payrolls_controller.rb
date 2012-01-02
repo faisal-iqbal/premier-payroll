@@ -1,6 +1,7 @@
 class PayrollsController < ActionController::Base
-  layout 'application'
+  before_filter :authenticate_user!
   before_filter :set_tab
+  layout 'application'
 
   def index
     @payrolls = Payroll.all
