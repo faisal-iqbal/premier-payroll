@@ -3,14 +3,7 @@
   <head>
     <title>PremierPayroll | <%= params[:controller].capitalize %></title>
     <%= stylesheet_link_tag "application" %>
-    <%= stylesheet_link_tag 'admin', :media => 'screen, projection' %>
-    <%= stylesheet_link_tag 'modal', :media => 'screen, projection' %>
-    <%= stylesheet_link_tag 'ga', :media => 'screen, projection' %>
-    <%= stylesheet_link_tag 'style', :media => 'screen, projection' %>
-    <!--[if IE]><%= stylesheet_link_tag 'admin_ie', :media => 'screen, projection' %><![endif]-->
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "jquery-ui" %>
-    <%= javascript_include_tag "timepicker" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
     <%= yield(:chartjs) %>
