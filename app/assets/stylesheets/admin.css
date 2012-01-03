@@ -196,8 +196,7 @@ form#trip_search button:active {
 }
 
 div.flash {
-    background:#f9f9f9;
-    border:1px solid #ccc;
+    border:0px;
     color:#333;
     float:left;
     font-size:1.2em;
@@ -207,42 +206,22 @@ div.flash {
     top:20px;
     overflow-y: auto;
     max-height: 50px;
-    min-width: 300px;
+    max-width: 300px;
 }
 
 div.flash.error {
     background:url(/images/exclamation-red.png) 0 50% no-repeat;
-    border:0px;
     padding-left:20px;
 }
-div.flash.notice {
+div.flash.notice , div.flash.success{
     background:url(/images/tick.png) 0 50% no-repeat;
-    border:0px;
+    padding-left:20px;
+}
+div.flash.alert, div.flash.warning{
+    background:url(/images/alert-icon.png) 0 50% no-repeat;
     padding-left:20px;
 }
 
-/*
-div.breadcrumbs {
-	font-size:1em;
-	margin:0 0 8px;
-}
-
-div.breadcrumbs a, div.breadcrumbs span {
-	color:#444;
-	text-decoration:none;
-}
-
-div.breadcrumbs a:hover {
-	color:#000;
-	text-decoration:underline;
-}
-
-div.breadcrumbs em {
-	font-size:1.4em;
-	font-weight:bold;
-	padding:0 4px;
-}
-*/
 /* ---  forms.css --- */
 label {font-weight:bold;}
 fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
